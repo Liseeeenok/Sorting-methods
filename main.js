@@ -1,13 +1,16 @@
 console.log('work!');
 
 let div = document.getElementById('div');
+let select = document.getElementById('select');
+let buts = document.querySelectorAll('button')
 
 let table = document.createElement('table');
-let thead = document.createElement('thead');
-let tbody = document.createElement('tbody');
+table.id = "table";
 
 let newRow = table.insertRow(0);
 let newCell = newRow.insertCell(0);
+
+let typeSort = 1;
 
 newCell.innerHTML = 'Индекс'
 newCell = newRow.insertCell(1);
@@ -44,15 +47,33 @@ function getElinTable(obj) {
 data.forEach(element => {
     getElinTable(element)
 });
-console.log(data)
 
-
-/*
-newRow = table.insertRow(1);
-newCell = newRow.insertCell(0);
-
-newCell.innerHTML = 'Test 2'
-newCell = newRow.insertCell(1);
-newCell.innerHTML = 'Test 4'
-*/
 div.appendChild(table);
+
+select.addEventListener('change', function(event) {
+    typeSort = select.value;
+})
+
+table = document.getElementById('table');
+console.log(buts)
+
+let test = table.querySelector('tbody')
+console.log(test)
+setTimeout(test.insertBefore(test.rows[3], test.rows[2]), 2000)
+test.insertBefore(test.rows[3], test.rows[2]);
+test.insertBefore(test.rows[10], test.rows[2]);
+test.insertBefore(test.rows[12], test.rows[2]);
+test.insertBefore(test.rows[12], test.rows[2]);
+/*
+while (true) {
+    if (table.moveRow) {        // Internet Explorer
+        setTimeout(table.moveRow (2, 3), 2000);
+    } 
+    else {        // Cross browser
+        let test = table.getElementsByTagName('tbody')
+        console.log(table.getElementsByTagName('tbody'))
+        test[0].id = "awdwada"
+        console.log(test[0].rows[2]);
+        setInterval(test[0].insertBefore(test[0].rows[3], test[0].rows[2]), 200000);
+    }
+}*/
