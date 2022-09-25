@@ -25,7 +25,7 @@ newCell.innerHTML = 'Дата рождиения'
 newCell = newRow.insertCell(6);
 newCell.innerHTML = 'Номер'
 //Функция для рисовки таблицы
-function getElinTable(obj) {
+function createElinTable(obj) {
     for (i = 0; i < obj.length; i++) {
         let newRow = table.insertRow(i+1);
         let newCell = newRow.insertCell(0);
@@ -44,8 +44,29 @@ function getElinTable(obj) {
         newCell.innerHTML = obj[i].Номер
     }
 }
+//Перерисовка таблицы
+function redrawingElinTable(obj) {
+    for (i = 0; i < obj.length; i++) {
+        table.deleteRow(i+1);
+        let newRow = table.insertRow(i+1);
+        let newCell = newRow.insertCell(0);
+        newCell.innerHTML = obj[i].Индекс
+        newCell = newRow.insertCell(1);
+        newCell.innerHTML = obj[i].Имя
+        newCell = newRow.insertCell(2);
+        newCell.innerHTML = obj[i].Фамилия
+        newCell = newRow.insertCell(3);
+        newCell.innerHTML = obj[i].Отчество
+        newCell = newRow.insertCell(4);
+        newCell.innerHTML = obj[i].Пол
+        newCell = newRow.insertCell(5);
+        newCell.innerHTML = obj[i].Дата
+        newCell = newRow.insertCell(6);
+        newCell.innerHTML = obj[i].Номер
+    }
+}
 //Заполнение таблицы
-getElinTable(data);
+createElinTable(data);
 //Добавление таблицы в DOM
 div.appendChild(table);
 //Слушатель выбора сортировка
@@ -89,30 +110,108 @@ function sortBubbleRow(id) {
                         sort = false;
                     }
                 }
-                console.log(i);
                 if (sort) {
                     let end = new Date();
                     timer.innerHTML = "Время: " + (end-start);
-                    console.log(end-start);
-                    getElinTable(data);
+                    redrawingElinTable(data);
                     return;
                 }
             }
             break;
         case ("but_2"):
-            console.log(1);
+            for (i=0;i<2000;i++) {
+                sort = true;
+                for(j=0;j<1999-i;j++) {
+                    if (data[j].Имя > data[j+1].Имя) {
+                        buf = data[j];
+                        data[j] = data[j+1];
+                        data[j+1] = buf;
+                        sort = false;
+                    }
+                }
+                if (sort) {
+                    let end = new Date();
+                    timer.innerHTML = "Время: " + (end-start);
+                    redrawingElinTable(data);
+                    return;
+                }
+            }
             break;
         case ("but_3"):
-            console.log(2);
+            for (i=0;i<2000;i++) {
+                sort = true;
+                for(j=0;j<1999-i;j++) {
+                    if (data[j].Фамилия > data[j+1].Фамилия) {
+                        buf = data[j];
+                        data[j] = data[j+1];
+                        data[j+1] = buf;
+                        sort = false;
+                    }
+                }
+                if (sort) {
+                    let end = new Date();
+                    timer.innerHTML = "Время: " + (end-start);
+                    redrawingElinTable(data);
+                    return;
+                }
+            }
             break;
         case ("but_4"):
-            console.log(3);
+            for (i=0;i<2000;i++) {
+                sort = true;
+                for(j=0;j<1999-i;j++) {
+                    if (data[j].Отчество > data[j+1].Отчество) {
+                        buf = data[j];
+                        data[j] = data[j+1];
+                        data[j+1] = buf;
+                        sort = false;
+                    }
+                }
+                if (sort) {
+                    let end = new Date();
+                    timer.innerHTML = "Время: " + (end-start);
+                    redrawingElinTable(data);
+                    return;
+                }
+            }
             break;
         case ("but_5"):
-            console.log(4);
+            for (i=0;i<2000;i++) {
+                sort = true;
+                for(j=0;j<1999-i;j++) {
+                    if (data[j].Пол > data[j+1].Пол) {
+                        buf = data[j];
+                        data[j] = data[j+1];
+                        data[j+1] = buf;
+                        sort = false;
+                    }
+                }
+                if (sort) {
+                    let end = new Date();
+                    timer.innerHTML = "Время: " + (end-start);
+                    redrawingElinTable(data);
+                    return;
+                }
+            }
             break;
         case ("but_6"):
-            console.log(5);
+            for (i=0;i<2000;i++) {
+                sort = true;
+                for(j=0;j<1999-i;j++) {
+                    if (data[j].Дата > data[j+1].Дата) {
+                        buf = data[j];
+                        data[j] = data[j+1];
+                        data[j+1] = buf;
+                        sort = false;
+                    }
+                }
+                if (sort) {
+                    let end = new Date();
+                    timer.innerHTML = "Время: " + (end-start);
+                    redrawingElinTable(data);
+                    return;
+                }
+            }
             break;
         case ("but_7"):
             for (i=0;i<2000;i++) {
@@ -125,12 +224,10 @@ function sortBubbleRow(id) {
                         sort = false;
                     }
                 }
-                console.log(i);
                 if (sort) {
                     let end = new Date();
                     timer.innerHTML = "Время: " + (end-start);
-                    console.log(end-start);
-                    getElinTable(data);
+                    redrawingElinTable(data);
                     return;
                 }
             }
