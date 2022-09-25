@@ -93,7 +93,7 @@ function sortTable(id) {
             break;
     }
 }
-//Выбор по столбцу сортировки
+//Выбор по столбцу сортировки пузырьком
 function sortBubbleRow(id) {
     let buf;
     let sort;
@@ -234,98 +234,145 @@ function sortBubbleRow(id) {
             break;
     }
 }
-/*
-//Сортировка пузырьком
-function sortingBubble(index) {
-    
-    let sort = true;
-    let start = new Date();
-    if ((index == 0) || (index == 6)){
-        for (i=1;i<2000;i++) {
-            sort = true;
-            for(j=1;j<=2000-i;j++) {
-                if (parseInt(tbody.rows[j].cells[index].innerHTML) > parseInt(tbody.rows[j+1].cells[index].innerHTML)) {
-                    tbody.insertBefore(tbody.rows[j+1], tbody.rows[j])
-                    sort = false;
-                }
-            }
-            if (sort) {
-                let end = new Date();
-                timer.innerHTML = "Время: " + (end-start);
-                console.log(end-start);
-                return;
-            }
-        }
-        return;
-    }
-    for (i=1;i<2000;i++) {
-        sort = true;
-        for(j=1;j<=2000-i;j++) {
-            if (tbody.rows[j].cells[index].innerHTML > tbody.rows[j+1].cells[index].innerHTML) {
-                tbody.insertBefore(tbody.rows[j+1], tbody.rows[j])
-                sort = false;
-            }
-        }
-        if (sort) {
-            let end = new Date();
-            timer.innerHTML = "Время: " + (end-start);
-            console.log(end-start);
-            return;
-        }
-    }
-}
-//Сортировка выбором
-function sortingChoice(index) {
-    let tbody = table.querySelector('tbody');
-    let sort = true;
-    let start = new Date();
-    let min;
-    if ((index == 0) || (index == 6)){
-        for (let i=1;i<2000;i++) {
-            min=i;
-            sort = true;
-            for(let j=i;j<2000;j++) {
-                if (parseInt(tbody.rows[j].cells[index].innerHTML) > parseInt(tbody.rows[j+1].cells[index].innerHTML)) {
-                    min = j+1;
-                    sort = false;
-                }
-            }
-            console.log(tbody.rows[min].cells[index].innerHTML)
-            tbody.insertBefore(tbody.rows[min], tbody.rows[i]);
-            if (sort) {
-                let end = new Date();
-                timer.innerHTML = "Время: " + (end-start);
-                console.log(end-start);
-                return;
-            }
-        }
-        return;
-    }
+//Выбор по столбцу сортировки пузырьком
+function sortingChoice(id) {
     let buf;
-    console.log(data);
-    for (let i=0;i<2000;i++) {
-        min=i;
-        sort = true;
-        for(let j=i;j<2000;j++) {
-            if (data[min].Имя > data[j].Имя) {
-                min = j;
-                sort = false;
+    let min;
+    let end;
+    let start = new Date();
+    switch (id) {
+        case ("but_1"):
+            for (i=0;i<2000;i++) {
+                min = i;
+                sort = true;
+                for(j=i;j<2000;j++) {
+                    if (data[min].Индекс > data[j].Индекс) {
+                        min = j;
+                    }
+                }
+                if (min != i) {
+                    buf = data[i];
+                    data[i] = data[min];
+                    data[min] = buf;
+                }
             }
-        }
-        console.log(min);
-        buf = data[min];
-        data[min] = data[i];
-        data[i] = buf;
-        if (sort) {
-            let end = new Date();
+            end = new Date();
             timer.innerHTML = "Время: " + (end-start);
-            console.log(end-start);
-            console.log(data);
-            data.forEach(element => {
-                getElinTable(element)
-            });
-            return;
-        }
+            redrawingElinTable(data);
+            break;
+        case ("but_2"):
+            for (i=0;i<2000;i++) {
+                min = i;
+                sort = true;
+                for(j=i;j<2000;j++) {
+                    if (data[min].Имя > data[j].Имя) {
+                        min = j;
+                    }
+                }
+                if (min != i) {
+                    buf = data[i];
+                    data[i] = data[min];
+                    data[min] = buf;
+                }
+            }
+            end = new Date();
+            timer.innerHTML = "Время: " + (end-start);
+            redrawingElinTable(data);
+            break;
+        case ("but_3"):
+            for (i=0;i<2000;i++) {
+                min = i;
+                sort = true;
+                for(j=i;j<2000;j++) {
+                    if (data[min].Фамилия > data[j].Фамилия) {
+                        min = j;
+                    }
+                }
+                if (min != i) {
+                    buf = data[i];
+                    data[i] = data[min];
+                    data[min] = buf;
+                }
+            }
+            end = new Date();
+            timer.innerHTML = "Время: " + (end-start);
+            redrawingElinTable(data);
+            break;
+        case ("but_4"):
+            for (i=0;i<2000;i++) {
+                min = i;
+                sort = true;
+                for(j=i;j<2000;j++) {
+                    if (data[min].Отчество > data[j].Отчество) {
+                        min = j;
+                    }
+                }
+                if (min != i) {
+                    buf = data[i];
+                    data[i] = data[min];
+                    data[min] = buf;
+                }
+            }
+            end = new Date();
+            timer.innerHTML = "Время: " + (end-start);
+            redrawingElinTable(data);
+            break;
+        case ("but_5"):
+            for (i=0;i<2000;i++) {
+                min = i;
+                sort = true;
+                for(j=i;j<2000;j++) {
+                    if (data[min].Пол > data[j].Пол) {
+                        min = j;
+                    }
+                }
+                if (min != i) {
+                    buf = data[i];
+                    data[i] = data[min];
+                    data[min] = buf;
+                }
+            }
+            end = new Date();
+            timer.innerHTML = "Время: " + (end-start);
+            redrawingElinTable(data);
+            break;
+        case ("but_6"):
+            for (i=0;i<2000;i++) {
+                min = i;
+                sort = true;
+                for(j=i;j<2000;j++) {
+                    if (data[min].Дата > data[j].Дата) {
+                        min = j;
+                    }
+                }
+                if (min != i) {
+                    buf = data[i];
+                    data[i] = data[min];
+                    data[min] = buf;
+                }
+            }
+            end = new Date();
+            timer.innerHTML = "Время: " + (end-start);
+            redrawingElinTable(data);
+            break;
+        case ("but_7"):
+            for (i=0;i<2000;i++) {
+                min = i;
+                sort = true;
+                for(j=i;j<2000;j++) {
+                    if (data[min].Номер > data[j].Номер) {
+                        min = j;
+                    }
+                }
+                if (min != i) {
+                    buf = data[i];
+                    data[i] = data[min];
+                    data[min] = buf;
+                }
+            }
+            end = new Date();
+            timer.innerHTML = "Время: " + (end-start);
+            redrawingElinTable(data);
+            break;
     }
 }
-*/
