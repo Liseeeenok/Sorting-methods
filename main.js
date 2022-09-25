@@ -48,31 +48,24 @@ function getElinTable(obj) {
 getElinTable(data);
 //Добавление таблицы в DOM
 div.appendChild(table);
-
-let buf;
-buf = data[3];
-data[3] = data[0];
-data[0] = buf;
-
 //Слушатель выбора сортировка
 select.addEventListener('change', function(event) {
-    getElinTable(data);
     typeSort = select.value;
 })
-/*
 //Получение таблицы из DOM
 table = document.getElementById('table');
+let tbody = table.querySelector('tbody');
 //Слушатель кнопок
 buts.forEach(element => {
     element.addEventListener('click', function(event) {
-        sortRow(event.target.id)
+        sortTable(event.target.id)
     })
 })
 //Выбор по типу сортировки пузырьком
 function sortTable(id) {
     switch (typeSort) {
         case ("1"):
-            sortingBubble(id);
+            sortBubbleRow(id);
             break;
         case ("2"):
             sortingChoice(id);
@@ -80,34 +73,74 @@ function sortTable(id) {
     }
 }
 //Выбор по столбцу сортировки
-function sortRow(id) {
+function sortBubbleRow(id) {
+    let buf;
+    let sort;
+    let start = new Date();
     switch (id) {
         case ("but_1"):
-            sortTable(0);
+            for (i=0;i<2000;i++) {
+                sort = true;
+                for(j=0;j<1999-i;j++) {
+                    if (data[j].Индекс > data[j+1].Индекс) {
+                        buf = data[j];
+                        data[j] = data[j+1];
+                        data[j+1] = buf;
+                        sort = false;
+                    }
+                }
+                console.log(i);
+                if (sort) {
+                    let end = new Date();
+                    timer.innerHTML = "Время: " + (end-start);
+                    console.log(end-start);
+                    getElinTable(data);
+                    return;
+                }
+            }
             break;
         case ("but_2"):
-            sortTable(1);
+            console.log(1);
             break;
         case ("but_3"):
-            sortTable(2);
+            console.log(2);
             break;
         case ("but_4"):
-            sortTable(3);
+            console.log(3);
             break;
         case ("but_5"):
-            sortTable(4);
+            console.log(4);
             break;
         case ("but_6"):
-            sortTable(5);
+            console.log(5);
             break;
         case ("but_7"):
-            sortTable(6);
+            for (i=0;i<2000;i++) {
+                sort = true;
+                for(j=0;j<1999-i;j++) {
+                    if (data[j].Номер > data[j+1].Номер) {
+                        buf = data[j];
+                        data[j] = data[j+1];
+                        data[j+1] = buf;
+                        sort = false;
+                    }
+                }
+                console.log(i);
+                if (sort) {
+                    let end = new Date();
+                    timer.innerHTML = "Время: " + (end-start);
+                    console.log(end-start);
+                    getElinTable(data);
+                    return;
+                }
+            }
             break;
     }
 }
+/*
 //Сортировка пузырьком
 function sortingBubble(index) {
-    let tbody = table.querySelector('tbody');
+    
     let sort = true;
     let start = new Date();
     if ((index == 0) || (index == 6)){
