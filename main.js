@@ -91,6 +91,9 @@ function sortTable(id) {
         case ("2"):
             sortingChoice(id);
             break;
+        case ("3"):
+            sortingJS(id);
+            break;
     }
 }
 //Выбор по столбцу сортировки пузырьком
@@ -234,7 +237,7 @@ function sortBubbleRow(id) {
             break;
     }
 }
-//Выбор по столбцу сортировки пузырьком
+//Выбор по столбцу сортировки выбором
 function sortingChoice(id) {
     let buf;
     let min;
@@ -370,6 +373,76 @@ function sortingChoice(id) {
                     data[min] = buf;
                 }
             }
+            end = new Date();
+            timer.innerHTML = "Время: " + (end-start);
+            redrawingElinTable(data);
+            break;
+    }
+}
+//Выбор по столбцу сортировки выбором
+function sortingJS(id) {
+    let end;
+    let start = new Date();
+    switch (id) {
+        case ("but_1"):
+            data.sort((prev, next) => {
+                if ( prev.Индекс < next.Индекс ) return -1;
+                if ( prev.Индекс > next.Индекс ) return 1;
+            });
+            end = new Date();
+            timer.innerHTML = "Время: " + (end-start);
+            redrawingElinTable(data);
+            break;
+        case ("but_2"):
+            data.sort((prev, next) => {
+                if ( prev.Имя < next.Имя ) return -1;
+                if ( prev.Имя > next.Имя ) return 1;
+            });
+            end = new Date();
+            timer.innerHTML = "Время: " + (end-start);
+            redrawingElinTable(data);
+            break;
+        case ("but_3"):
+            data.sort((prev, next) => {
+                if ( prev.Фамилия < next.Фамилия ) return -1;
+                if ( prev.Фамилия > next.Фамилия ) return 1;
+            });
+            end = new Date();
+            timer.innerHTML = "Время: " + (end-start);
+            redrawingElinTable(data);
+            break;
+        case ("but_4"):
+            data.sort((prev, next) => {
+                if ( prev.Отчество < next.Отчество ) return -1;
+                if ( prev.Отчество > next.Отчество ) return 1;
+            });
+            end = new Date();
+            timer.innerHTML = "Время: " + (end-start);
+            redrawingElinTable(data);
+            break;
+        case ("but_5"):
+            data.sort((prev, next) => {
+                if ( prev.Пол < next.Пол ) return -1;
+                if ( prev.Пол > next.Пол ) return 1;
+            });
+            end = new Date();
+            timer.innerHTML = "Время: " + (end-start);
+            redrawingElinTable(data);
+            break;
+        case ("but_6"):
+            data.sort((prev, next) => {
+                if ( prev.Дата < next.Дата ) return -1;
+                if ( prev.Дата > next.Дата ) return 1;
+            });
+            end = new Date();
+            timer.innerHTML = "Время: " + (end-start);
+            redrawingElinTable(data);
+            break;
+        case ("but_7"):
+            data.sort((prev, next) => {
+                if ( prev.Номер < next.Номер ) return -1;
+                if ( prev.Номер > next.Номер ) return 1;
+            });
             end = new Date();
             timer.innerHTML = "Время: " + (end-start);
             redrawingElinTable(data);
