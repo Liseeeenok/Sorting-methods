@@ -103,9 +103,9 @@ function sortBubbleRow(id) {
     let start = new Date();
     switch (id) {
         case ("but_1"):
-            for (i=0;i<2000;i++) {
+            for (i=0;i<data.length;i++) {
                 sort = true;
-                for(j=0;j<1999-i;j++) {
+                for(j=0;j<data.length-1-i;j++) {
                     if (data[j].Индекс > data[j+1].Индекс) {
                         buf = data[j];
                         data[j] = data[j+1];
@@ -122,9 +122,9 @@ function sortBubbleRow(id) {
             }
             break;
         case ("but_2"):
-            for (i=0;i<2000;i++) {
+            for (i=0;i<data.length;i++) {
                 sort = true;
-                for(j=0;j<1999-i;j++) {
+                for(j=0;j<data.length-1-i;j++) {
                     if (data[j].Имя > data[j+1].Имя) {
                         buf = data[j];
                         data[j] = data[j+1];
@@ -141,9 +141,9 @@ function sortBubbleRow(id) {
             }
             break;
         case ("but_3"):
-            for (i=0;i<2000;i++) {
+            for (i=0;i<data.length;i++) {
                 sort = true;
-                for(j=0;j<1999-i;j++) {
+                for(j=0;j<data.length-1-i;j++) {
                     if (data[j].Фамилия > data[j+1].Фамилия) {
                         buf = data[j];
                         data[j] = data[j+1];
@@ -160,9 +160,9 @@ function sortBubbleRow(id) {
             }
             break;
         case ("but_4"):
-            for (i=0;i<2000;i++) {
+            for (i=0;i<data.length;i++) {
                 sort = true;
-                for(j=0;j<1999-i;j++) {
+                for(j=0;j<data.length-1-i;j++) {
                     if (data[j].Отчество > data[j+1].Отчество) {
                         buf = data[j];
                         data[j] = data[j+1];
@@ -179,9 +179,9 @@ function sortBubbleRow(id) {
             }
             break;
         case ("but_5"):
-            for (i=0;i<2000;i++) {
+            for (i=0;i<data.length;i++) {
                 sort = true;
-                for(j=0;j<1999-i;j++) {
+                for(j=0;j<data.length-1-i;j++) {
                     if (data[j].Пол > data[j+1].Пол) {
                         buf = data[j];
                         data[j] = data[j+1];
@@ -198,9 +198,9 @@ function sortBubbleRow(id) {
             }
             break;
         case ("but_6"):
-            for (i=0;i<2000;i++) {
+            for (i=0;i<data.length;i++) {
                 sort = true;
-                for(j=0;j<1999-i;j++) {
+                for(j=0;j<data.length-1-i;j++) {
                     if (data[j].Дата > data[j+1].Дата) {
                         buf = data[j];
                         data[j] = data[j+1];
@@ -217,9 +217,9 @@ function sortBubbleRow(id) {
             }
             break;
         case ("but_7"):
-            for (i=0;i<2000;i++) {
+            for (i=0;i<data.length;i++) {
                 sort = true;
-                for(j=0;j<1999-i;j++) {
+                for(j=0;j<data.length-1-i;j++) {
                     if (data[j].Номер > data[j+1].Номер) {
                         buf = data[j];
                         data[j] = data[j+1];
@@ -245,10 +245,10 @@ function sortingChoice(id) {
     let start = new Date();
     switch (id) {
         case ("but_1"):
-            for (i=0;i<2000;i++) {
+            for (i=0;i<data.length;i++) {
                 min = i;
                 sort = true;
-                for(j=i;j<2000;j++) {
+                for(j=i;j<data.length;j++) {
                     if (data[min].Индекс > data[j].Индекс) {
                         min = j;
                     }
@@ -264,10 +264,10 @@ function sortingChoice(id) {
             redrawingElinTable(data);
             break;
         case ("but_2"):
-            for (i=0;i<2000;i++) {
+            for (i=0;i<data.length;i++) {
                 min = i;
                 sort = true;
-                for(j=i;j<2000;j++) {
+                for(j=i;j<data.length;j++) {
                     if (data[min].Имя > data[j].Имя) {
                         min = j;
                     }
@@ -283,10 +283,10 @@ function sortingChoice(id) {
             redrawingElinTable(data);
             break;
         case ("but_3"):
-            for (i=0;i<2000;i++) {
+            for (i=0;i<data.length;i++) {
                 min = i;
                 sort = true;
-                for(j=i;j<2000;j++) {
+                for(j=i;j<data.length;j++) {
                     if (data[min].Фамилия > data[j].Фамилия) {
                         min = j;
                     }
@@ -302,10 +302,10 @@ function sortingChoice(id) {
             redrawingElinTable(data);
             break;
         case ("but_4"):
-            for (i=0;i<2000;i++) {
+            for (i=0;i<data.length;i++) {
                 min = i;
                 sort = true;
-                for(j=i;j<2000;j++) {
+                for(j=i;j<data.length;j++) {
                     if (data[min].Отчество > data[j].Отчество) {
                         min = j;
                     }
@@ -321,10 +321,10 @@ function sortingChoice(id) {
             redrawingElinTable(data);
             break;
         case ("but_5"):
-            for (i=0;i<2000;i++) {
+            for (i=0;i<data.length;i++) {
                 min = i;
                 sort = true;
-                for(j=i;j<2000;j++) {
+                for(j=i;j<data.length;j++) {
                     if (data[min].Пол > data[j].Пол) {
                         min = j;
                     }
@@ -340,10 +340,10 @@ function sortingChoice(id) {
             redrawingElinTable(data);
             break;
         case ("but_6"):
-            for (i=0;i<2000;i++) {
+            for (i=0;i<data.length;i++) {
                 min = i;
                 sort = true;
-                for(j=i;j<2000;j++) {
+                for(j=i;j<data.length;j++) {
                     if (data[min].Дата > data[j].Дата) {
                         min = j;
                     }
@@ -359,10 +359,10 @@ function sortingChoice(id) {
             redrawingElinTable(data);
             break;
         case ("but_7"):
-            for (i=0;i<2000;i++) {
+            for (i=0;i<data.length;i++) {
                 min = i;
                 sort = true;
-                for(j=i;j<2000;j++) {
+                for(j=i;j<data.length;j++) {
                     if (data[min].Номер > data[j].Номер) {
                         min = j;
                     }
